@@ -16,9 +16,9 @@ Command-line Shell
 	2. Pros:
 	3. Cons:
 
-'''bash
+```bash
 echo $0
-'''
+```
 
 Linux File System
 ---
@@ -32,17 +32,17 @@ Root Directory:
 
 Current Directory:
 
-'''bash
+```bash
 pwd
-'''
+```
 
 Absolute Path:
 
 Relative Path:
 
-'''bash
+```bash
 cd
-'''
+```
 
 Special Directories
 
@@ -51,21 +51,21 @@ Special Directories
 	3. ~
 	4. ~userid
 
-'''bash
+```bash
 ls
-'''
+```
 
 Wildcard Matching
-'''bash
+```bash
 ls *.txt
-'''
+```
 
-'''bash
+```bash
 cat
-'''
-'''
+```
+```
 Ctrl+C
 Ctrl+D
-'''
+```
 
 Input/Output Redirection
