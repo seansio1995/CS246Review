@@ -277,4 +277,33 @@ Note:
 
 Separate Compilation: Ability to compile individual pieces of a program and the combine them.
 
+```bash
+g++ -c main.cc		//just compile, produce an object file (.o)
+g++ -c vector.cc
+g++ main.o vector.o	//linker acts as the mathchmakers
+```
 
+Global Variables
+---
+
+In .h file
+```C++
+extern int globalvar;	//just declaration
+```
+In .cc file
+```C++
+int globalvar;	//definition
+```
+
+Include Guard
+---
+
+```C++
+#ifndef __HEADER_H__
+#define __HEADER_H__
+...
+#endif
+```
+Advice: Always place an include guard
+Advice: Never put "using namespace std;" in your header file
+Advice: Always refer cout as std::cout etc.
