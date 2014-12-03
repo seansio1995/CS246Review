@@ -4,10 +4,10 @@ C++
 Input/Output
 ---
 
+```C++
 << input operator
 >> output operator
 
-```C++
 cin.fail();
 cin.eof();
 ```
