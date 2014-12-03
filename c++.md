@@ -230,7 +230,7 @@ struct vec {int x,y;}
 vec operator + (const vec &a, const vec &b);
 ```
 
-Overloading input and output operator
+Overloading input and output operators
 ```C++
 ostream &operator << (ostream &out, const grade &g) {
 	out << g.theGrade << "%";
@@ -243,3 +243,38 @@ istream &operator >> (istream &in, const grade &g) {
 	return in;
 }
 ```
+
+Preprocessor
+---
+
+Source code -> Preprocessor -> Compiler -> Assembler -> Linker
+
+```C++
+#include <iostream>	//look standard C++ lib (/usr/lib/c++)
+#include "vector.h"	//look the lib in current directory
+#define VAR VALUE	//preprocessor variable with VALUE (default is empty string)
+```
+
+```bash
+g++ -DX=15 define.cc
+```
+X will be defined as 15
+
+```C++
+#ifdef X
+	block of code
+#endif
+```
+
+Break your program into:
+	* interface file (.h) type definitions and funciton headers
+	* implementation file (.c/.cc/.cpp)
+
+Note:
+
+	* Never complie header files
+	* Never include .cc files
+
+Separate Compilation: Ability to compile individual pieces of a program and the combine them.
+
+
