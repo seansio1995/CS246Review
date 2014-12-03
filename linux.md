@@ -68,5 +68,6 @@ Input/Output Redirection
 
 Each program is attached to 3 streams
 
-| Standard Input(stdin) | Program Process | Standard Output(stdout)(buffered) |
-|  |  |  Standard Error(stderr)(not buffered) |
+Standard Input(stdin) | Program Process | Standard Output(stdout)(buffered)
+--- | --- | ---
+|  |  | Standard Error(stderr)(not buffered) |
