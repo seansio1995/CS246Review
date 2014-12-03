@@ -53,10 +53,6 @@ Special Directories
 
 ```bash
 ls
-```
-
-Wildcard Matching
-```bash
 ls *.txt
 ```
 
@@ -69,3 +65,8 @@ Ctrl+D
 ```
 
 Input/Output Redirection
+
+Each program is attached to 3 streams
+
+|Standard Input(stdin)|Program Process|Standard Output(stdout)(buffered)|
+||Standard Error(stderr)(not buffered)|
