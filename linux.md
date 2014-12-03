@@ -169,11 +169,40 @@ Command line arguments
 
 $i i-th argument
 
-Example:
-	1. A good password is not in the dictionary
-	2. Print the number from 1 to $1
+A good password is not in the dictionary
+
+```bash
+#!/bin/bash
+egrep "^$1" /usr/share/dict/words > /dev/null 
+if [ $? -eq 0 ]; then
+	echo Not a good password
+else
+	echo Maybe a good password
+fi
+```
+
+Print the number from 1 to $1
+
+```bash
+#!/bin/bash
+x=1
+while [ $x -le $1 ]; do
+	echo $x
+	x=$((x+1))
+done
+if [ $# -ne 1 ]; then
+	echo Argument Fault
+fi
+```
 
 For loops
+
+```bash
+#!/bin/bash
+for name in *.cpp; do
+	mv ${name} ${name%cpp}cc
+done
+```
 
 if statement
 
