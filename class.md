@@ -81,4 +81,93 @@ Places where the copy constructor is called
 * when an object is passed by value to a function
 * when an object is return from a function
 
+Destructor
+---
+
+To destroy an object, a method called the destructor runs. A destructor takes no arguments, there is always only one destructor for a class.
+
+* stack allocated object is destroyed when it goes out of scope
+* heap allocated object is destroyed when we call delete on it
+
+Note: base types (int, bool, etc.) and ptrs to object do not have destructor.
+
+```C++
+Node::~Node() { delete next; }
+Node *np = new Node(1, new Node(2, new Node(3, NULL)));
+```
+
+Assignment Operator
+---
+Default operator= does a field for field copy. Custom operator= if there is dynamic memory involved.
+```C++
+struct Node {
+	Node &operator=(const Node &other) {
+		if(this == &other) return *this;
+		delete next; //may leak memory if next is pointing something already
+		if(*other.next) next = new Node(*other.next);
+		else next = NULL;
+		return *this;
+	}
+}
+If new fails, next is not assigned, since we deleted next, next is a dangling ptr. Solution is delay the delete.
+```C++
+Node *tmp = next;
+```
+
+Copy and Swap Idiom
+---
+```C++
+struct Node {
+	void swap(Node &other) {
+		std::swap(data, other.data);
+		std::swap(next, other.next);
+	}
+	Node &operator=(const Node &other) {
+		Node tmp = other;	//copy constructor, stack allocated, deep copy;
+		swap(tmp);			//tmp has the old data, delete by stack;
+		return *this;
+	}
+};
+```
+
+Rule of Three
+---
+
+If you need to write custom version of
+
+1. copy constructor
+2. operator=
+3. destructor
+
+then you usually need to implement all three
+
+Implicit Conversion
+---
+
+```C++
+struct Node {
+	int data;
+	Node *next;
+	Node(int d) : data(d), next(NULL) {}
+};
+Node n(4);
+Node n1 = 4;
+```
+One argument constructor creates an implicit conversion. To disable implicit conversion, use the explicit keyword.
+```C++
+struct Node {
+	explicit Node(int data) {}
+};
+```
+
+Member Funtions vs Standalone Functions
+
+Input/output operators are always implemented as standalone funcitons. Following operatos must be implemented as methods functions.
+
+* operator=
+* operator[]
+* operator()
+* operator->
+* operatorT()
+
 
