@@ -3,6 +3,22 @@ Design Patterns
 
 If you have THIS situation, then THIS programming technique might help.
 
+System Modelling
+---
+
+Better to design first, then implement
+
+* abstractions: what classes will I have
+* relationship between classes
+
+Formal technique: UML(Unified Modelling Language)
+
+A UML class is a box
+
+name of class | Vec
+--- | ---
+<ul><li>fields(optional)</li><li>-private +public</li></ul> | <ul><li>- x:integer/li><li>- y:integer</li></ul>
+
 Singleton Pattern
 ---
 
