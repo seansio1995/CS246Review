@@ -199,3 +199,48 @@ int Student::numInstances = 0;	//definition
 Static member functions are associated with the class. You do not need an object to call this member function. You do not have access to "this" parameter.
 
 Restrictions: static member functions can only call other static functions and access static fields
+
+Encapsulation
+---
+
+* keep certain implementation details hidden
+* object appears as a black box with exposed interface
+
+Default visibility in a struct:	public
+
+Default visibility in a class:	private
+
+With private fields, you can provide users with the field values using getters and setters.
+
+Hide implemetation details (include fields)
+
+* maintain class invaraants
+* change implemetation
+
+Friend
+---
+```C++
+class Vec {
+	int x, y;
+	public:
+	friend std::ostream &operator << (std::ostream &out, const Vec &c);	//now can access to the private parts
+};
+```
+Advice: have few friends as possible -- break encapsulation
+
+System Modelling
+---
+
+Better to design first, then implement
+
+* abstractions: what classes will I have
+* relationship between classes
+
+Formal technique: UML(Unified Modelling Language)
+
+A UML class is a box
+
+name of class | Vec
+--- | ---
+<ul><li>fields(optional)</li><li>-private +public</li></ul> | <ul><li>- x:integer/li><li>- y:integer</li></ul>
+
