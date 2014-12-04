@@ -28,3 +28,13 @@ Example: database connection, error log
 
 See provided example code
 
+Observer Pattern
+---
+
+Publish-Subscribe model
+
+Some entities which publishes/generates data: The Subject
+
+Other entities which subscribe to data to react/consume it: The Observer
+
+See provided example code

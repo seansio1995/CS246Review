@@ -337,3 +337,37 @@ for(int i = 0; i < 20; i ++)
 	collection[i]->isHeavy();
 ```
 Ability to accommodate multiple types in an abstraction is called Polymorphism.
+
+Abstract Class
+---
+```C++
+class Studnet {
+	protected:
+		int numCourses;
+	public:
+		virtual int fee() = 0;	//method with no implementation, pure virtual
+};
+class Regular: public Student {
+	public:
+		int fee() {return 700 * numCourses;}
+};
+class Coop: public Student {
+	public:
+		int fee() {return 1300 * numCourses;}
+};
+```
+We do not want to give an implementation for the method Student::fee().
+A class with at least one pure virtual method cannot be instantiated, it is an abstract class.
+A class that inherits from an abstract class is also abstract unless all inherited pure virtual methods are implemented.
+A class with no pure virtual method is called a concrete class (can be instantiated)
+
+Uses of abstract classes
+
+* specify the functionality expected from subclass
+* polymorphism
+* place common fields in superclass
+
+If you need to make a class abstract but cannot decide on a method, pick the destructor```C++
+virtual ~Subject() = 0;	//pure virtual
+```
+Must implement the destruct, because subclass destructor call supercalss destructor. A pure virtual method must be overriden in the subclass.
