@@ -17,7 +17,8 @@ A UML class is a box
 
 name of class | Vec
 --- | ---
-<ul><li>fields(optional)</li><li>-private +public</li></ul> | <ul><li>- x:integer/li><li>- y:integer</li></ul>
+<ul><li>fields(optional)</li><li>-private +public</li></ul> | <ul><li>- x:integer</li><li>- y:integer</li></ul>
+method | <ul><li>- getX</li><li>+ y:getY</li></ul>
 
 Singleton Pattern
 ---
