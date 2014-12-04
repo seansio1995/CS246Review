@@ -11,7 +11,7 @@ struct student {
 ```
 
 * grade() is called method
-* assns, mt, and final are called feilds
+* assns, mt, and final are called fields
 * A instance of a class is called an object
 
 A method always has a hidden parameter called "this", which is a pointer to the object on which the methoed was called.
@@ -109,6 +109,7 @@ struct Node {
 		return *this;
 	}
 }
+```
 If new fails, next is not assigned, since we deleted next, next is a dangling ptr. Solution is delay the delete.
 ```C++
 Node *tmp = next;
@@ -170,4 +171,31 @@ Input/output operators are always implemented as standalone funcitons. Following
 * operator->
 * operatorT()
 
+Const method
+---
 
+```C++
+struct Student {
+	int assns, mid ,final;
+	mutable int numcalls;
+	float grade() const {
+		numcalls ++;	//cannot modify other fields
+		return ...;
+	}
+}
+```
+
+Static
+---
+
+A static field is associated with the class not any object. One field shared by all object
+```C++
+struct Student {
+	static int numInstances;	//declaration
+	student(...) : ... {numInstances ++;}
+};
+int Student::numInstances = 0;	//definition
+```
+Static member functions are associated with the class. You do not need an object to call this member function. You do not have access to "this" parameter.
+
+Restrictions: static member functions can only call other static functions and access static fields
