@@ -20,6 +20,25 @@ name of class | Vec
 <ul><li>fields(optional)</li><li>-private +public</li></ul> | <ul><li>- x:integer</li><li>- y:integer</li></ul>
 method | <ul><li>- getX</li><li>+ getY</li></ul>
 
+Coupling and Cohesion
+---
+Coupling: Degree to which modules depend on each other
+
+Low Coupling: desirable
+
+* Program to an interface
+* Do no care about implementation details
+
+High Coupling: depend on low level implementation
+
+* friends
+* public fields
+
+Cohesion: how related are components within a module
+
+* High Cohesion: desirable
+* Low Cohesion: no separation of concerns
+
 Singleton Pattern
 ---
 
